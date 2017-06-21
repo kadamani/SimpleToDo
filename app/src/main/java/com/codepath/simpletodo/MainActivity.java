@@ -54,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
         etNewItem.setText("");
         writeItems();
         Toast.makeText(getApplicationContext(), "Item added to list", Toast.LENGTH_SHORT).show();
+        if (items.size() > 3){
+            Toast.makeText(this, "You have a lot to do", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -70,8 +73,10 @@ public class MainActivity extends AppCompatActivity {
             itemsAdapter.notifyDataSetChanged();
             // persist the changed model
             writeItems();
+
             // notify the user the operation completed ok
             Toast.makeText(this, "Item updated successfully", Toast.LENGTH_SHORT).show();
+
         }
     }
     private void setupListViewListener() {
